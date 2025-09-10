@@ -8,13 +8,14 @@ void setup() {
   Serial.println("Starting Reads");
 }
 
+int ledBrightness = 0;
+
 void loop() {
-  delay(1000);
-  analogRead(A0);
+  delay(10);
   int reading = analogRead(A0);
   Serial.print("Result: ");
   Serial.println(reading);
   Serial.println("");
-
-
+  analogWrite(LED_BUILTIN, reading/8);
+  ledBrightness = (ledBrightness+ 1) % 256;
 }
