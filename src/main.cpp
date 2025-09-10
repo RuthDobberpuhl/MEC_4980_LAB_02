@@ -4,15 +4,17 @@
 int myFunction(int, int);
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+  Serial.println("Starting Reads");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  delay(1000);
+  analogRead(A0);
+  int reading = analogRead(A0);
+  Serial.print("Result: ");
+  Serial.println(reading);
+  Serial.println("");
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+
 }
